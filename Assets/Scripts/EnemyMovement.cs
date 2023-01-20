@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]private float timeBetweenMoves;
     [SerializeField]private Rigidbody2D rb;
     [SerializeField]private PlayerMovement player;
+    [SerializeField]private Animator anim;
     private Vector3 direction;
     private bool movedRandom = false;
 
@@ -44,9 +45,13 @@ public class EnemyMovement : MonoBehaviour
         }
         if(player.state == PlayerMovement.PlayerState.Normal){
             state = EnemyState.Chase;
+            anim.ResetTrigger("SwapState");
+            anim.SetTrigger("SwapState2");
         }
         if(player.state == PlayerMovement.PlayerState.Disguised){
             state = EnemyState.Wander;
+            anim.ResetTrigger("SwapState2");
+            anim.SetTrigger("SwapState");
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 18eba5937796f254c8e591480fbeb4ae
+guid: 956911be06e72744db3c14990c8786d1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,12 +117,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: thingy (1)_0
+      name: DancyThingy_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 2
         y: 19
-        width: 9
+        width: 10
         height: 11
       alignment: 9
       pivot: {x: 0.5, y: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca9cdd2b55a388b42957312ede8f70e0
-      internalID: -1559101578
+      spriteID: e1fefc953a5735d4abede0fb5ceab941
+      internalID: 1818731610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thingy (1)_1
+      name: DancyThingy_1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 3
+        x: 20
+        y: 19
         width: 9
-        height: 13
+        height: 12
       alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 999d7ebc1bb24ec49b5a4addbc52f43b
-      internalID: -594457230
+      spriteID: 2813cc3f8f52a9b47ba80c3b03704b7a
+      internalID: 368409689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DancyThingy_2
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 3
+        width: 10
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6267fa3e5667284795034c52f2c6a50
+      internalID: -1874716482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DancyThingy_3
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 3
+        width: 9
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5328dbdd580a3fe4682a67b88bfb5dc9
+      internalID: 1904879490
       vertices: []
       indices: 
       edges: []
@@ -169,8 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      thingy (1)_0: -1559101578
-      thingy (1)_1: -594457230
+      DancyThingy_0: 1818731610
+      DancyThingy_1: 368409689
+      DancyThingy_3: 1904879490
+      DancyThingy_2: -1874716482
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
