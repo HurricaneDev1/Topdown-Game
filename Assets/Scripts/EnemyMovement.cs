@@ -71,4 +71,8 @@ public class EnemyMovement : MonoBehaviour
         direction = moveDirection;
     }
 
+    void OnCollision2D(Collider2D col){
+        direction = new Vector3(-direction.x,-direction.y,0);
+    }
+
 }
