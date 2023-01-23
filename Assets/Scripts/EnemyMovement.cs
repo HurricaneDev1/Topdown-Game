@@ -18,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]private Animator anim;
     private Vector3 direction;
     private bool movedRandom = false;
+    [SerializeField]private float searchDis;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
         if(state != EnemyState.Inactive){
             rb.AddForce(direction * moveSpeed * Time.deltaTime);
         }
-        if(player.state == PlayerMovement.PlayerState.Normal){
+        if(player.state == PlayerMovement.PlayerState.Normal && Vector3.Distance(transform.position, player.transform.position) < searchDis){
             state = EnemyState.Chase;
             anim.ResetTrigger("SwapState");
             anim.SetTrigger("SwapState2");

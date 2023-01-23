@@ -352,6 +352,7 @@ MonoBehaviour:
   rb: {fileID: 395751103}
   player: {fileID: 0}
   anim: {fileID: 441208626}
+  searchDis: 7
 --- !u!50 &395751103
 Rigidbody2D:
   serializedVersion: 4
