@@ -13,10 +13,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private Rigidbody2D rb;
     [SerializeField]private GameObject player;
     [SerializeField]private GameObject enemy;
+    [SerializeField]private float disguiseTime;
+    [SerializeField]private float currentTime;
+    [SerializeField]private GameObject win;
+    [SerializeField]private GameObject lose;
     // Start is called before the first frame update
     void Start()
     {
         state = PlayerState.Normal;
+        currentTime = disguiseTime;
     }
 
     // Update is called once per frame
@@ -24,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         switch(state){
             case PlayerState.Normal:       
-                if(Input.GetKeyDown(KeyCode.K)){
+                if(Input.GetKeyDown(KeyCode.K) && currentTime > 0){
                     state = PlayerState.Disguised;
                     player.SetActive(false);
                     enemy.SetActive(true);
@@ -32,6 +37,12 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case PlayerState.Disguised:
                 if(Input.GetKeyDown(KeyCode.K)){
+                    state = PlayerState.Normal;
+                    player.SetActive(true);
+                    enemy.SetActive(false);
+                }
+                currentTime -= Time.deltaTime;
+                if(currentTime < 0){
                     state = PlayerState.Normal;
                     player.SetActive(true);
                     enemy.SetActive(false);
@@ -52,4 +63,13 @@ public class PlayerMovement : MonoBehaviour
     //         state = PlayerState.Move;
     //     }
     // }
+
+    void OnTriggerEnter2D(Collider2D col){
+        if(state == PlayerState.Normal && col.tag == "Enemy"){
+            Debug.Log("Dead");
+            lose.SetActive(true);
+        }else if(col.tag == "End"){
+            win.SetActive(true);
+        }
+    }
 }

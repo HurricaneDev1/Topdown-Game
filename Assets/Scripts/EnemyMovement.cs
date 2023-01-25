@@ -7,7 +7,8 @@ public class EnemyMovement : MonoBehaviour
     public enum EnemyState{
         Chase,
         Wander,
-        Inactive
+        Inactive,
+        Patrol
     }
 
     public EnemyState state;
@@ -19,11 +20,13 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 direction;
     private bool movedRandom = false;
     [SerializeField]private float searchDis;
+    [SerializeField]private List<Transform> points = new List<Transform>();
+    [SerializeField]private int nextPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        state = EnemyState.Wander;   
+        state = EnemyState.Patrol;   
     }
 
     // Update is called once per frame
@@ -39,6 +42,9 @@ public class EnemyMovement : MonoBehaviour
             case EnemyState.Chase:
                 Chase();
                 break;
+            case EnemyState.Patrol:
+                Patrol();
+                break;
             
         }
         if(state != EnemyState.Inactive){
@@ -50,7 +56,8 @@ public class EnemyMovement : MonoBehaviour
             anim.SetTrigger("SwapState2");
         }
         if(player.state == PlayerMovement.PlayerState.Disguised){
-            state = EnemyState.Wander;
+            state = EnemyState.Patrol;
+            nextPoint = Random.Range(01, (nextPoint + 4) % points.Count);
             anim.ResetTrigger("SwapState2");
             anim.SetTrigger("SwapState");
         }
@@ -76,4 +83,13 @@ public class EnemyMovement : MonoBehaviour
         direction = new Vector3(-direction.x,-direction.y,0);
     }
 
+    void Patrol(){
+        Vector3 moveDirection = points[nextPoint].position - transform.position;
+        moveDirection.Normalize();
+        direction = moveDirection;
+        if(Vector3.Distance(transform.position, points[nextPoint].position) < 1f){
+            nextPoint = (nextPoint + 1) % points.Count;
+            rb.velocity = new Vector2(0,0);
+        }
+    }
 }
